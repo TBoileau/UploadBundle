@@ -15,7 +15,7 @@
         <env name="APP_SECRET" value="s$cretf0rt3st" />
         <env name="SHELL_VERBOSITY" value="-1" />
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
-        <env name="CC_TEST_REPORTER_ID" value="e79d6be0cbf4d72a1ab9159328eec8b6f28bde2126cc3e2520aecf8cbe463f4d" />
+        <env name="CC_TEST_REPORTER_ID" value="3ee9797524ebacc55c87fa44e8238087f23f11974c52f67b914f95c24dd54ef4" />
         <!-- define your env variables for the test env here -->
     </php>
 
