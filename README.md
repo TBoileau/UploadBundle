@@ -3,6 +3,9 @@
 [![Build Status](https://travis-ci.org/TBoileau/UploadBundle.svg?branch=master)](https://travis-ci.org/TBoileau/UploadBundle) 
 [![Maintainability](https://api.codeclimate.com/v1/badges/c62bafc0d9ce028e5798/maintainability)](https://codeclimate.com/github/TBoileau/UploadBundle/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c62bafc0d9ce028e5798/test_coverage)](https://codeclimate.com/github/TBoileau/UploadBundle/test_coverage)
+[![Latest Stable Version](https://poser.pugx.org/tboileau/upload-bundle/v/stable)](https://packagist.org/packages/tboileau/upload-bundle)
+[![Total Downloads](https://poser.pugx.org/tboileau/upload-bundle/downloads)](https://packagist.org/packages/tboileau/upload-bundle)
+[![License](https://poser.pugx.org/tboileau/upload-bundle/license)](https://packagist.org/packages/tboileau/upload-bundle)
 
 ## Requirements 
 
