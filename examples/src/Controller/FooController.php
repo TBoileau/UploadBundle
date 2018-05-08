@@ -21,7 +21,7 @@ class FooController extends Controller
      */
     public function foo()
     {
-        return $this->render('default/index.html.twig', [
+        return $this->render('index.html.twig', [
             'form' => $this->createForm(FooType::class)->createView(),
         ]);
     }

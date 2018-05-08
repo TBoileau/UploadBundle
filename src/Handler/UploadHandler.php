@@ -56,7 +56,7 @@ class UploadHandler
         try {
             $file = $this->requestStack->getCurrentRequest()->files->get("file");
             if($file === null) {
-                throw new BadRequestHttpException('No file upload.');
+                return new JsonResponse(["error" => true, "message" => "No file uploaded."]);
             }
 
             $attributes = json_decode($this->requestStack->getCurrentRequest()->request->get("attr"), true);
