@@ -1,0 +1,4 @@
+t_boileau_upload_bundle:
+    resource: '@TBoileauUploadBundle/Controller'
+    type:     annotation
+    prefix:   /t_boileau_upload

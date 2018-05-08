@@ -1,0 +1,193 @@
+.upload-box
+{
+    font-size: 1.25rem; /* 20 */
+    background-color: #c8dadf;
+    position: relative;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+}
+
+.upload-box label {
+    cursor: pointer;
+}
+
+.upload-box a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.upload-box a:hover {
+    text-decoration: none;
+    color: #92b0b3;
+}
+
+.upload-box-progressbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+    margin-top: 10px;
+}
+
+.upload-box-progress {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    background-color: #007bff;
+    transition: width .6s ease;
+}
+
+.upload-box-uploading {
+    width: 50%;
+    text-align: center;
+}
+
+.upload-box.is-dragover
+{
+    outline-offset: -20px;
+    outline-color: #c8dadf;
+    background-color: #fff;
+}
+
+.upload-box .upload-box-dragndrop
+{
+    display: inline;
+}
+.upload-box .upload-box-icon
+{
+    width: 100%;
+    height: 80px;
+    fill: #92b0b3;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.upload-box.is-uploading .upload-box-input,
+.upload-box.is-success .upload-box-input,
+.upload-box.is-error .upload-box-input
+{
+    visibility: hidden;
+}
+
+.upload-box-uploading,
+.upload-box-success,
+.upload-box-error
+{
+    display: none;
+}
+.upload-box.is-uploading .upload-box-uploading,
+.upload-box.is-success .upload-box-success,
+.upload-box.is-error .upload-box-error
+{
+    display: block;
+    -webkit-transform: translateY( -50% );
+    transform: translateY( -50% );
+}
+.upload-box-uploading
+{
+    font-style: italic;
+}
+.upload-box-success
+{
+    -webkit-animation: appear-from-inside .25s ease-in-out;
+    animation: appear-from-inside .25s ease-in-out;
+}
+@-webkit-keyframes appear-from-inside
+{
+    from	{ -webkit-transform: translateY( -50% ) scale( 0 ); }
+    75%		{ -webkit-transform: translateY( -50% ) scale( 1.1 ); }
+    to		{ -webkit-transform: translateY( -50% ) scale( 1 ); }
+}
+@keyframes appear-from-inside
+{
+    from	{ transform: translateY( -50% ) scale( 0 ); }
+    75%		{ transform: translateY( -50% ) scale( 1.1 ); }
+    to		{ transform: translateY( -50% ) scale( 1 ); }
+}
+
+.upload-box-restart
+{
+    font-weight: 700;
+}
+.upload-box-restart:focus,
+.upload-box-restart:hover
+{
+    color: #39bfd3;
+}
+
+.upload-box-file
+{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.upload-box-file + label
+{
+    max-width: 80%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+}
+.upload-box-file + label:hover strong,
+.upload-box-file:focus + label strong,
+.upload-box-file.has-focus + label strong
+{
+    color: #39bfd3;
+}
+.upload-box-file:focus + label,
+.upload-box-file.has-focus + label
+{
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.upload-box-file + label *
+{
+    /* pointer-events: none; */ /* in case of FastClick lib use */
+}
+
+.upload-box-button
+{
+    font-weight: 700;
+    color: #e5edf1;
+    background-color: #39bfd3;
+    display: none;
+    padding: 8px 16px;
+    margin: 40px auto 0;
+}
+.upload-box-button:hover,
+.upload-box-button:focus
+{
+    background-color: #0f3c4b;
+}
+
+.upload-box-error {
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+    color: #dc3545;
+}
