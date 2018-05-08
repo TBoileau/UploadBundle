@@ -1,9 +1,15 @@
 $.fn.upload = function() {
-    this.each(function() {
+    this.each(function(options) {
         var self = this;
+        options = options
 
         var defaults = {
             texts: {
+                error: "An error occured.",
+                maxSizeRegex: "Max size is not valid.",
+                missingAttributes: "Missing 'image' attributes.",
+                tooManyAttributes: "Too many 'image' attributes.",
+                noFile : "No file selected.",
                 sizeTooBig : "Your file is too big.",
                 imgTooBig : "Your image is too big.",
                 imgTooSmall : "Your image is too small.",
@@ -36,9 +42,11 @@ $.fn.upload = function() {
                 $(self).find(".upload-box-uploading").hide();
                 $(self).find(".upload-box-input").show();
                 $(self).find(".upload-box-error").show();
-                $(self).find(".upload-box-error").text(response.message);
+                $(self).find(".upload-box-error").text(defaults.texts[response.message]);
             }
         };
+
+        defaults = Object.assign(defaults, options);
 
         var $input = $("#"+$(self).data("rel"));
         var maxSize = -1;
@@ -127,63 +135,63 @@ $.fn.upload = function() {
 
         function upload(files) {
             var file = files[0];
-            //
-            // if (mimeTypes.length > 0 && mimeTypes.indexOf(file.type) == -1) {
-            //     defaults.onError({
-            //         message: defaults.texts.mimeTypeError
-            //     });
-            //     return;
-            // }
 
-            // if (maxSize >= 0 && file.size > maxSize) {
-            //     defaults.onError({
-            //         message: defaults.texts.sizeTooBig
-            //     });
-            //     return;
-            // }
+            if (mimeTypes.length > 0 && mimeTypes.indexOf(file.type) == -1) {
+                defaults.onError({
+                    message: defaults.texts.mimeTypeError
+                });
+                return;
+            }
 
-            // var isImage = file.type == "image/gif" || file.type == "image/jpeg" || file.type == "image/jpg" || file.type == "image/png";
-            //
-            // if(isImage && (image.min_ratio || image.max_ratio || image.min_height || image.max_height || image.min_width || image.max_width)) {
-            //     var fr = new FileReader;
-            //     fr.onload = function() { // file is loaded
-            //         var img = new Image;
-            //         img.onload = function() {
-            //             var ratio = img.width/img.height;
-            //             if(image.min_ratio && image.min_ratio > ratio) {
-            //                 defaults.onError({
-            //                     message: defaults.texts.imgRatioTooSmall
-            //                 });
-            //             }else if(image.max_ratio && image.max_ratio < ratio) {
-            //                 defaults.onError({
-            //                     message: defaults.texts.imgRatioTooBig
-            //                 });
-            //             }else if(image.min_height && image.min_height > img.height) {
-            //                 defaults.onError({
-            //                     message: defaults.texts.imgTooSmall
-            //                 });
-            //             }else if(image.max_height && image.max_height < img.height) {
-            //                 defaults.onError({
-            //                     message: defaults.texts.imgTooBig
-            //                 });
-            //             }else if(image.min_width && image.min_width > img.width) {
-            //                 defaults.onError({
-            //                     message: defaults.texts.imgTooSmall
-            //                 });
-            //             }else if(image.max_width && image.max_width < img.width) {
-            //                 defaults.onError({
-            //                     message: defaults.texts.imgTooBig
-            //                 });
-            //             }else{
-            //                 next(file);
-            //             }
-            //         };
-            //         img.src = fr.result; // is the data URL because called with readAsDataURL
-            //     };
-            //     fr.readAsDataURL(file);
-            // }else{
+            if (maxSize >= 0 && file.size > maxSize) {
+                defaults.onError({
+                    message: defaults.texts.sizeTooBig
+                });
+                return;
+            }
+
+            var isImage = file.type == "image/gif" || file.type == "image/jpeg" || file.type == "image/jpg" || file.type == "image/png";
+
+            if(isImage && (image.min_ratio || image.max_ratio || image.min_height || image.max_height || image.min_width || image.max_width)) {
+                var fr = new FileReader;
+                fr.onload = function() { // file is loaded
+                    var img = new Image;
+                    img.onload = function() {
+                        var ratio = img.width/img.height;
+                        if(image.min_ratio && image.min_ratio > ratio) {
+                            defaults.onError({
+                                message: defaults.texts.imgRatioTooSmall
+                            });
+                        }else if(image.max_ratio && image.max_ratio < ratio) {
+                            defaults.onError({
+                                message: defaults.texts.imgRatioTooBig
+                            });
+                        }else if(image.min_height && image.min_height > img.height) {
+                            defaults.onError({
+                                message: defaults.texts.imgTooSmall
+                            });
+                        }else if(image.max_height && image.max_height < img.height) {
+                            defaults.onError({
+                                message: defaults.texts.imgTooBig
+                            });
+                        }else if(image.min_width && image.min_width > img.width) {
+                            defaults.onError({
+                                message: defaults.texts.imgTooSmall
+                            });
+                        }else if(image.max_width && image.max_width < img.width) {
+                            defaults.onError({
+                                message: defaults.texts.imgTooBig
+                            });
+                        }else{
+                            next(file);
+                        }
+                    };
+                    img.src = fr.result; // is the data URL because called with readAsDataURL
+                };
+                fr.readAsDataURL(file);
+            }else{
                 next(file);
-            // }
+            }
 
         }
     })

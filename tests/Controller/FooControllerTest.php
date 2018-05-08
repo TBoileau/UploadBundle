@@ -21,57 +21,48 @@ class FooControllerTest extends WebTestCase
         $client->request('GET', '/');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        $file = new UploadedFile($this->copy(), 'file.png', 'image/jpeg', 2051);
-        $client->request('POST', '/t_boileau_upload/upload', ["mimeTypes" => ["image/png"], "maxSize" => "1M"], ["file" => $file]);
+        $file = new UploadedFile($this->copy(), 'file.png', 'image/png', 2051);
+        $client->request('POST', '/t_boileau_upload/upload', ["attr" => json_encode(["mimeTypes" => ["image/png"], "maxSize" => "1M", "image" => []])], ["file" => $file]);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
         $client->request('POST', '/t_boileau_upload/upload', [], []);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
         $file = new UploadedFile($this->copy(), 'fail', '', 1);
-        $client->request('POST', '/t_boileau_upload/upload', [], ["file" => $file]);
+        $client->request('POST', '/t_boileau_upload/upload', ["attr" => json_encode(["mimeTypes" => ["image/png"], "maxSize" => "1M", "image" => []])], ["file" => $file]);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        $file = new UploadedFile($this->copy(), 'file.png', 'image/avi', 2051);
-        $client->request('POST', '/t_boileau_upload/upload', [], ["file" => $file]);
+        $file = new UploadedFile($this->copy(), 'file.png', 'image/png', 2051);
+        $client->request('POST', '/t_boileau_upload/upload', ["attr" => json_encode(["mimeTypes" => ["video/x-msvideo"], "maxSize" => "1M", "image" => []])], ["file" => $file]);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        $file = new UploadedFile($this->copy(), 'file.png', 'image/jpeg', 2051);
-        $client->request('POST', '/t_boileau_upload/upload', ["attr" => json_encode(["mimeTypes" => ["video/x-msvideo"]])], ["file" => $file]);
+        $file = new UploadedFile($this->copy(), 'file.png', 'image/png', 2051);
+        $client->request('POST', '/t_boileau_upload/upload', ["attr" => json_encode(["mimeTypes" => ["image/png"], "maxSize" => "1K", "image" => []])], ["file" => $file]);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        $file = new UploadedFile($this->copy(), 'file.png', 'image/jpeg', 2051);
-        $client->request('POST', '/t_boileau_upload/upload', ["attr" => json_encode(["mimeTypes" => ["image/png"], "maxSize" => "1K"])], ["file" => $file]);
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-
-        $file = new UploadedFile($this->copy(), 'file.png', 'image/jpeg', 2051);
+        $file = new UploadedFile($this->copy(), 'file.png', 'image/png', 2051);
         $client->request('POST', '/t_boileau_upload/upload', ["attr" => json_encode(["mimeTypes" => ["image/png"], "maxSize" => "1M", "image" => ["min_ratio" => 3]])], ["file" => $file]);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        $file = new UploadedFile($this->copy(), 'file.png', 'image/jpeg', 2051);
+        $file = new UploadedFile($this->copy(), 'file.png', 'image/png', 2051);
         $client->request('POST', '/t_boileau_upload/upload', ["attr" => json_encode(["mimeTypes" => ["image/png"], "maxSize" => "1M", "image" => ["max_ratio" => 2]])], ["file" => $file]);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        $file = new UploadedFile($this->copy(), 'file.png', 'image/jpeg', 2051);
+        $file = new UploadedFile($this->copy(), 'file.png', 'image/png', 2051);
         $client->request('POST', '/t_boileau_upload/upload', ["attr" => json_encode(["mimeTypes" => ["image/png"], "maxSize" => "1M", "image" => ["min_width" => 800]])], ["file" => $file]);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        $file = new UploadedFile($this->copy(), 'file.png', 'image/jpeg', 2051);
+        $file = new UploadedFile($this->copy(), 'file.png', 'image/png', 2051);
         $client->request('POST', '/t_boileau_upload/upload', ["attr" => json_encode(["mimeTypes" => ["image/png"], "maxSize" => "1M", "image" => ["max_width" => 500]])], ["file" => $file]);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        $file = new UploadedFile($this->copy(), 'file.png', 'image/jpeg', 2051);
+        $file = new UploadedFile($this->copy(), 'file.png', 'image/png', 2051);
         $client->request('POST', '/t_boileau_upload/upload', ["attr" => json_encode(["mimeTypes" => ["image/png"], "maxSize" => "1M", "image" => ["min_height" => 400]])], ["file" => $file]);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        $file = new UploadedFile($this->copy(), 'file.png', 'image/jpeg', 2051);
+        $file = new UploadedFile($this->copy(), 'file.png', 'image/png', 2051);
         $client->request('POST', '/t_boileau_upload/upload', ["attr" => json_encode(["mimeTypes" => ["image/png"], "maxSize" => "1M", "image" => ["max_height" => 200]])], ["file" => $file]);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-
-
-
-
-        echo $client->getResponse()->getContent();
     }
 
     /**

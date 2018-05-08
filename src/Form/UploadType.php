@@ -36,6 +36,10 @@ class UploadType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
+        $resolver->setRequired([
+            "max_size", "image", "mime_types"
+        ]);
+
         $resolver->setDefaults([
             "max_size" => -1,
             "image" => [

@@ -2,7 +2,7 @@ services:
     t_boileau_upload.handler.upload:
         class: TBoileau\UploadBundle\Handler\UploadHandler
         public: true
-        arguments: ["@request_stack"]
+        arguments: ['@request_stack', '@validator']
     TBoileau\UploadBundle\Controller\:
         resource: '../../Controller'
         tags: ['controller.service_arguments']
