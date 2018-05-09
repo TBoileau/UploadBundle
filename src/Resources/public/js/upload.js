@@ -34,7 +34,11 @@ $.fn.upload = function(options) {
                 $(self).find(".upload-box-success").show();
                 var $input = $("#"+$(self).data("rel"));
                 $input.val(response.file);
-                $(self).find(".upload-box-success").html('<strong>Done!</strong> <a href="#" class="upload-box-cancel">'+defaults.texts.success+'</a>')
+                $(self).find(".upload-box-success").html('<strong>Done!</strong> <a href="#" class="upload-box-cancel">'+defaults.texts.success+'</a>');
+                defaults.onComplete();
+            },
+            onComplete: function() {
+
             },
             onError: function(response) {
                 $(self).find(".upload-box-success").hide();
