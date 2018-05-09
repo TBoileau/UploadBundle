@@ -13,7 +13,7 @@
 * PHP 7.1.3 or +
 * jQuery
 
-## Installation [MultiMarkdownOverview] ##
+## Installation
 
 ### Step 1: Download the Bundle
 
