@@ -1,8 +1,7 @@
-$.fn.upload = function() {
-    this.each(function(options) {
+$.fn.upload = function(options) {
+    options = options || {};
+    this.each(function() {
         var self = this;
-        options = options
-
         var defaults = {
             texts: {
                 error: "An error occured.",
@@ -46,6 +45,7 @@ $.fn.upload = function() {
             }
         };
 
+        options.texts = Object.assign(defaults.texts, options.texts);
         defaults = Object.assign(defaults, options);
 
         var $input = $("#"+$(self).data("rel"));
