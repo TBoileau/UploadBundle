@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6447dbe59d92cd853d0f861589070830",
+    "content-hash": "ad4f4fff08b3c82290f05e5b9337af29",
     "packages": [
         {
             "name": "psr/cache",
@@ -979,12 +979,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "58f6bd2b08f28705d7f44d16f8fab2836d71af59"
+                "reference": "56f5fab3714a0f2994dfd28e60c5f1a950c95160"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/58f6bd2b08f28705d7f44d16f8fab2836d71af59",
-                "reference": "58f6bd2b08f28705d7f44d16f8fab2836d71af59",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/56f5fab3714a0f2994dfd28e60c5f1a950c95160",
+                "reference": "56f5fab3714a0f2994dfd28e60c5f1a950c95160",
                 "shasum": ""
             },
             "require": {
@@ -1058,7 +1058,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-07T14:51:25+00:00"
+            "time": "2018-05-09T05:57:23+00:00"
         },
         {
             "name": "symfony/inflector",
@@ -3620,11 +3620,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "symfony/validator": 20,
-        "symfony/expression-language": 20,
-        "symfony/yaml": 20,
         "phpunit/php-code-coverage": 20,
-        "symfony/browser-kit": 20,
         "codeclimate/php-test-reporter": 20
     },
     "prefer-stable": false,
