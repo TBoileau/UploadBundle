@@ -196,5 +196,3 @@ $.fn.upload = function() {
         }
     })
 }
-
-$(".upload-box").upload();

@@ -45,7 +45,7 @@ return [
 
 ```
 
-## Configuration [MultiMarkdownOverview] ##
+## Configuration
 
 ### Step 1 : Add new configuration's yaml file
 
@@ -120,7 +120,7 @@ You can keep only the input file like this :
 ```
 Keep the class and `data-rel` attribute. 
 
-## Usage [MultiMarkdownOverview] ##
+## Usage
 
 ### Step 1 : Use the upload field type
 
@@ -192,14 +192,6 @@ You can add options on your field, it' recommanded for more security :
 Don't forget to add jQuery before the upload script.
 
 ### Step 3 : Javascript usage
-
-By default, all DOM element with class `upload-box`, however you can call the jQuery custom method :
-
-```javascript
-$("seletor").upload();
-```
-
-And if you want more control of your widget, you can override the default options :
 
 ```javascript
 $("seletor").upload({
