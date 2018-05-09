@@ -15,13 +15,21 @@
 
 ## Summary
 
-* [Installation](#<a-name="1"></a>installation)
-* [Configuration](#<a-name="2"></a>configuration)
-* [Usage](#<a-name="3"></a>usage)
+* [Installation][]
+    * [Step 1: Download the Bundle][]
+    * [Step 2: Enable the Bundle][]
+* [Configuration][]
+    * [Step 1 : Add new configuration's yaml file][]
+    * [Step 2 : Add routing configuration][]
+    * [Extra : Override the widget][]
+* [Usage][]
+    * [Step 1 : Use the upload field type][]
+    * [Step 2 : Add assets to your view or template][]
+    * [Step 3 : Javascript usage][]
 
-## <a name="1"></a>Installation
+## Installation [MultiMarkdownOverview] ##
 
-### Step 1: Download the Bundle
+### Step 1: Download the Bundle [MultiMarkdownOverview] ###
 
 Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
@@ -34,7 +42,7 @@ This command requires you to have Composer installed globally, as explained
 in the [installation chapter](https://getcomposer.org/doc/00-intro.md)
 of the Composer documentation.
 
-### Step 2: Enable the Bundle
+### Step 2: Enable the Bundle [MultiMarkdownOverview] ###
 
 Then, enable the bundle by adding it to the list of registered bundles
 in the `config/bundles.php` file of your project:
@@ -51,9 +59,9 @@ return [
 
 ```
 
-## <a-name="2"></a>Configuration
+## Configuration [MultiMarkdownOverview] ##
 
-### Step 1 : Add new configuration's yaml file
+### Step 1 : Add new configuration's yaml file [MultiMarkdownOverview] ###
 
 Create a new yaml file in `config/package` directory, name it `t_boileau_upload.yaml` :
 
@@ -67,7 +75,7 @@ t_boileau_upload:
 * *upload_dir* : The directory that contain all uploaded files.
 * *web_path* : The prefix of the relative path of uploaded files.
 
-### Step 2 : Add routing configuration
+### Step 2 : Add routing configuration [MultiMarkdownOverview] ###
 
 Add the routing configuration in `config/routes.yaml` :
 
@@ -92,7 +100,7 @@ Use the copy on production environment :
 php bin/console assets:install public
 ```
 
-### Extra : Override the widget
+### Extra : Override the widget [MultiMarkdownOverview] ###
 
 An example of actual widget :
 ```twig
@@ -126,9 +134,9 @@ You can keep only the input file like this :
 ```
 Keep the class and `data-rel` attribute. 
 
-## <a-name="3"></a>Usage
+## Usage [MultiMarkdownOverview] ##
 
-### Step 1 : Use the upload field type
+### Step 1 : Use the upload field type [MultiMarkdownOverview] ###
 
 ```php
 <?php
@@ -173,7 +181,7 @@ You can add options on your field, it' recommanded for more security :
 * *max_size* : Refere to this regular expression `/^\d+[O|K|M]$/`.
 * *image* : You can specify a few specs, like ratio, width and height.
 
-### Step 2 : Add assets to your view or template
+### Step 2 : Add assets to your view or template [MultiMarkdownOverview] ###
 
 ```twig
 <!DOCTYPE html>
@@ -197,7 +205,7 @@ You can add options on your field, it' recommanded for more security :
 
 Don't forget to add jQuery before the upload script.
 
-### Step 3 : Javascript usage
+### Step 3 : Javascript usage [MultiMarkdownOverview] ###
 
 By default, all DOM element with class `upload-box`, however you can call the jQuery custom method :
 
